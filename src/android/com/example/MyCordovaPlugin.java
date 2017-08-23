@@ -31,12 +31,12 @@ public class MyCordovaPlugin extends CordovaPlugin {
     if(action.equals("echo")) {
       String phrase = args.getString(0);
       // Echo back the first argument
-      Context context = getApplicationContext();
-	CharSequence text = "Hello toast!";
-	int duration = Toast.LENGTH_SHORT;
+      //Context context = getApplicationContext();
+	//CharSequence text = "Hello toast!";
+	//int duration = Toast.LENGTH_SHORT;
 
-	Toast toast = Toast.makeText(context, text, duration);
-	toast.show();
+	//Toast toast = Toast.makeText(context, text, duration);
+	//toast.show();
       Log.d(TAG, phrase);
     } else if(action.equals("getDate")) {
       // An example of returning data back to the web layer
