@@ -16,6 +16,7 @@ import android.util.Log;
 import android.content.Context;
 import android.widget.Toast;
 import android.view.View;
+import android.content.Intent;
 
 import java.util.Date;
 
@@ -48,7 +49,7 @@ public class MyCordovaPlugin extends CordovaPlugin {
       intentScan.addCategory(Intent.CATEGORY_DEFAULT);
       intentScan.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
 
-      that.cordova.startActivityForResult(that, intentScan, REQUEST_CODE);
+      that.cordova.startActivityForResult(that, intentScan, 1234);
     } else if(action.equals("getDate")) {
       // An example of returning data back to the web layer
       final PluginResult result = new PluginResult(PluginResult.Status.OK, (new Date()).toString());
