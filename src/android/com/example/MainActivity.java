@@ -14,8 +14,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.grit.gilog.GILog;
-import com.grit.mdm.R;
+//import com.grit.gilog.GILog;
+import com.example.R;
 public class MainActivity extends AppCompatActivity
         implements GoogleApiClient.OnConnectionFailedListener {
     private static final int RC_SIGN_IN = 1254;
@@ -75,18 +75,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
-        GILog.d(TAG, "handleSignInResult:" + result.isSuccess());
+        //GILog.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
-            GILog.d(TAG, "gso result success - " + acct.getEmail());
+           // GILog.d(TAG, "gso result success - " + acct.getEmail());
             handleAuthSuccess(acct.getEmail());
         } else {
-            GILog.d(TAG, "gso result failure");
+            //GILog.d(TAG, "gso result failure");
             handleAuthFailure();
         }
     }
 
     private void handleAuthSuccess(final String email) {
-        GILog.d(TAG, "gso result success - " + email);
+        //GILog.d(TAG, "gso result success - " + email);
     }
 }
