@@ -38,6 +38,8 @@ public class MyCordovaPlugin extends CordovaPlugin {
 
 	//Toast toast = Toast.makeText(context, text, duration);
 	//toast.show();
+      final PluginResult result = new PluginResult(PluginResult.Status.OK, phrase);
+      callbackContext.sendPluginResult(result);
       Log.d(TAG, phrase);
     } else if(action.equals("getDate")) {
       // An example of returning data back to the web layer
