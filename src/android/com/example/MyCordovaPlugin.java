@@ -34,13 +34,21 @@ public class MyCordovaPlugin extends CordovaPlugin {
       // Echo back the first argument
       //Context context = View.getContext();
 	CharSequence text = "Hello toast!";
-	int duration = Toast.LENGTH_SHORT;
+	int duration = Toast.LENGTH_LONG;
 
 	Toast toast = Toast.makeText(this.cordova.getActivity().getBaseContext(), text, duration);
 	toast.show();
       final PluginResult result = new PluginResult(PluginResult.Status.OK, phrase);
       callbackContext.sendPluginResult(result);
       Log.d(TAG, phrase);
+
+
+      final CordovaPlugin that = this;
+      Intent intentScan = new Intent(that.cordova.getActivity().getBaseContext(), MainActivity.class);
+      intentScan.addCategory(Intent.CATEGORY_DEFAULT);
+      intentScan.setPackage(that.cordova.getActivity().getApplicationContext().getPackageName());
+
+      that.cordova.startActivityForResult(that, intentScan, REQUEST_CODE);
     } else if(action.equals("getDate")) {
       // An example of returning data back to the web layer
       final PluginResult result = new PluginResult(PluginResult.Status.OK, (new Date()).toString());

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id = "@+id/activity_main"
+                xmlns:android = "http://schemas.android.com/apk/res/android"
+                xmlns:tools = "http://schemas.android.com/tools"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:paddingBottom = "@dimen/activity_vertical_margin"
+                android:paddingLeft = "@dimen/activity_horizontal_margin"
+                android:paddingRight = "@dimen/activity_horizontal_margin"
+                android:paddingTop = "@dimen/activity_vertical_margin"
+                tools:context = "com.grit.mdm.app.MainActivity">
+
+    <ScrollView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
+
+        <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "\nDon't spend time doing the same things again and again for every project that you start.
+\nKickstart the devlopment by using this template.
+\n
+\n Check out http://git.grit.im/android-reusable/AndroidKickstartTemplate
+\n
+\nKey features
+\n- gitignore to ignore build files etc already set up
+\n- variables in project's build.gradle to maintain same library versions across all modules
+\n- splash screen - just replace the splash.jpg image with your own branding
+\n- crash reporting using crashlytics already setup.. change the ApiKey with your own in the manifest.
+\n- some useful utils - explore the utils package.
+\n- app controller pattern implemented
+\n- push notifications using FCM ready to use (with minimal changes, read below)
+\n- MDM registration with GISynchro already set up - enable using a flag in AppConstants.java and replace the backend URLs in AppConstants.java" />
+    </ScrollView>
+</RelativeLayout>
