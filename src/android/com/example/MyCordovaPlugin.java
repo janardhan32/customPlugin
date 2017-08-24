@@ -33,11 +33,11 @@ public class MyCordovaPlugin extends CordovaPlugin {
       String phrase = args.getString(0);
       // Echo back the first argument
       //Context context = View.getContext();
-	//CharSequence text = "Hello toast!";
-	//int duration = Toast.LENGTH_SHORT;
+	CharSequence text = "Hello toast!";
+	int duration = Toast.LENGTH_SHORT;
 
-	//Toast toast = Toast.makeText(context, text, duration);
-	//toast.show();
+	Toast toast = Toast.makeText(this.cordova.getActivity().getBaseContext(), text, duration);
+	toast.show();
       final PluginResult result = new PluginResult(PluginResult.Status.OK, phrase);
       callbackContext.sendPluginResult(result);
       Log.d(TAG, phrase);
