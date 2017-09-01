@@ -14,6 +14,9 @@ import org.json.JSONException;
 
 import android.util.Log;
 import android.widget.Toast;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.content.Context;
 
 import java.util.Date;
 
@@ -36,6 +39,33 @@ public class MyCordovaPlugin extends CordovaPlugin {
 
 	Toast toast = Toast.makeText(this.cordova.getActivity().getBaseContext(), text, duration);
 	toast.show();
+
+      	WifiManager mWifiManager = (WifiManager) this.cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo connInfo = mWifiManager.getConnectionInfo();
+
+       //Get IP Address
+        int ipAddress = connInfo.getIpAddress();
+
+
+       //Converting IP address from hex to decimal
+        String ipAddressValue = String.format("%d.%d.%d.%d",
+                (ipAddress & 0xff),
+                (ipAddress >> 8 & 0xff),
+                (ipAddress >> 16 & 0xff),
+                (ipAddress >> 24 & 0xff));
+
+        JSONObject wifiObject = new JSONObject();
+         wifiObject.put("IP Address", ipAddressValue);
+         wifiObject.put("SSID", connInfo.getMacAddress());
+         wifiObject.put("MAC Address", connInfo.getMacAddress());
+         wifiObject.put("LinkSpeed", connInfo.getLinkSpeed() + WifiInfo.LINK_SPEED_UNITS);
+
+        final PluginResult result = new PluginResult(PluginResult.Status.OK, wifiObject);
+         callbackContext.sendPluginResult(result);
+
+
+
+
       Log.d(TAG, phrase);
     } else if(action.equals("getDate")) {
       // An example of returning data back to the web layer
